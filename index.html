@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basmala & Abeer | Portfolio</title>
+  <meta name="description"
+    content="Portfolio of Basmala Yasser and Abeer Sherif — Computer Science students specializing in AI, Machine Learning, Data Science, and Software Engineering." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            neon: '#38bdf8',
+            accent: '#818cf8',
+            dark: '#0f172a',
+            card: '#1e293b',
+            muted: '#64748b',
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.7s ease forwards',
+            'glow': 'glow 2.5s ease-in-out infinite alternate',
+          },
+          keyframes: {
+            fadeUp: { '0%': { opacity: 0, transform: 'translateY(30px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } },
+            glow: { '0%': { textShadow: '0 0 8px #38bdf8' }, '100%': { textShadow: '0 0 22px #818cf8, 0 0 40px #38bdf8' } },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #0f172a;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .neon-border {
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56, 189, 248, 0.7);
+      box-shadow: 0 0 24px rgba(56, 189, 248, 0.2);
+    }
+
+    .skill-badge {
+      transition: all 0.25s ease;
+    }
+
+    .skill-badge:hover {
+      transform: scale(1.08);
+      background: rgba(56, 189, 248, 0.2);
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #38bdf8;
+      border-radius: 3px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.12);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      margin: 2px;
+    }
+
+    .section-divider {
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.3), transparent);
+      margin: 0;
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== LIGHT MODE ===== */
+    body.light {
+      background-color: #f1f5f9;
+      color: #1e293b;
+    }
+
+    body.light #navbar {
+      background: rgba(241, 245, 249, 0.9) !important;
+      border-bottom-color: rgba(56, 189, 248, 0.3) !important;
+    }
+
+    body.light .bg-card,
+    body.light [class*="bg-slate-800"] {
+      background-color: #ffffff !important;
+    }
+
+    body.light .text-slate-300,
+    body.light .text-slate-400 {
+      color: #475569 !important;
+    }
+
+    body.light .text-white {
+      color: #0f172a !important;
+    }
+
+    body.light .neon-border {
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+
+    body.light .tag {
+      background: rgba(56, 189, 248, 0.15);
+    }
+
+    body.light .section-divider {
+      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
+    }
+
+    body.light ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    body.light .skill-badge {
+      background-color: #e2e8f0 !important;
+      color: #1e293b;
+    }
+
+    body.light nav a {
+      color: #475569 !important;
+    }
+
+    body.light nav a:hover {
+      color: #0f172a !important;
+    }
+
+    body.light footer {
+      border-color: #e2e8f0;
+      color: #94a3b8;
+    }
+
+    body.light .card-hover:hover {
+      box-shadow: 0 0 24px rgba(56, 189, 248, 0.15);
+    }
+
+    body.light #toggle-theme {
+      background: #e2e8f0;
+      color: #1e293b;
+    }
+  </style>
+</head>
+
+<body class="text-slate-300 antialiased">
+
+  <!-- NAV -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300"
+    style="background: rgba(15,23,42,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(56,189,248,0.1);">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#home" class="text-xl font-bold gradient-text">B & A</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#about" class="nav-link text-sm font-medium text-slate-400 hover:text-white transition-colors"
+          id="nav-about">About</a>
+        <a href="#skills" class="nav-link text-sm font-medium text-slate-400 hover:text-white transition-colors"
+          id="nav-skills">Skills</a>
+        <a href="#projects" class="nav-link text-sm font-medium text-slate-400 hover:text-white transition-colors"
+          id="nav-projects">Projects</a>
+        <a href="#contact" class="px-4 py-2 rounded-lg text-sm font-semibold text-dark"
+          style="background: linear-gradient(90deg,#38bdf8,#818cf8)">Hire Us</a>
+        <!-- Theme Toggle -->
+        <button id="toggle-theme" onclick="toggleTheme()"
+          class="w-9 h-9 rounded-full flex items-center justify-center transition-all"
+          style="background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.3);"
+          aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
+          <span id="theme-icon">🌙</span>
+        </button>
+      </div>
+      <button id="mobile-menu-btn" class="md:hidden text-slate-400 hover:text-white" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 flex flex-col gap-4">
+      <a href="#about" class="text-slate-400 hover:text-white text-sm">About</a>
+      <a href="#skills" class="text-slate-400 hover:text-white text-sm">Skills</a>
+      <a href="#projects" class="text-slate-400 hover:text-white text-sm">Projects</a>
+      <a href="#contact" class="text-slate-400 hover:text-white text-sm">Hire Us</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home"
+    class="min-h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden pt-20">
+    <!-- Background glow orbs -->
+    <div class="absolute top-1/4 left-1/4 w-72 h-72 rounded-full opacity-10 blur-3xl"
+      style="background: #38bdf8; animation: pulse 4s ease-in-out infinite;"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full opacity-10 blur-3xl"
+      style="background: #818cf8; animation: pulse 5s ease-in-out infinite;"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <p class="text-neon text-sm font-semibold tracking-widest uppercase mb-4 animate-on-scroll visible">Senior AI
+        Computer Science Students</p>
+      <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight animate-on-scroll visible"
+        style="animation-delay:0.1s">
+        <span class="gradient-text" style="animation: glow 2.5s ease-in-out infinite alternate;">Basmala & Abeer</span>
+      </h1>
+      <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-on-scroll visible"
+        style="animation-delay:0.2s">
+        <span class="text-neon font-semibold text-2xl">Power duo vibes, Where AI Meets Ambition.</span>
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-on-scroll visible"
+        style="animation-delay:0.3s">
+        <a href="#projects" id="view-projects-btn"
+          class="px-8 py-3 rounded-xl font-bold text-dark text-base transition-transform hover:scale-105"
+          style="background: linear-gradient(90deg,#38bdf8,#818cf8)">View Projects ↓</a>
+        <a href="#contact" id="get-in-touch-btn"
+          class="px-8 py-3 rounded-xl font-bold text-slate-300 text-base neon-border hover:bg-white/5 transition-all">Get
+          in Touch →</a>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 animate-bounce text-neon opacity-60">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- ABOUT -->
+  <section id="about" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <!-- Avatar Cards -->
+      <div class="flex gap-6 justify-center animate-on-scroll">
+        <div class="text-center neon-border rounded-2xl p-6 bg-card flex-1 card-hover">
+          <div class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden"
+            style="border: 2px solid #38bdf8; box-shadow: 0 0 12px rgba(56,189,248,0.4)">
+            <img src="BESO.jpeg" alt="Basmala Yasser" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="text-white font-bold text-lg">Basmala Yasser</h3>
+          <p class="text-neon text-sm mt-1">Senior AI Computer Science Student</p>
+        </div>
+        <div class="text-center neon-border rounded-2xl p-6 bg-card flex-1 card-hover">
+          <div class="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden"
+            style="border: 2px solid #818cf8; box-shadow: 0 0 12px rgba(129,140,248,0.4)">
+            <img src="BERO.jpeg" alt="Abeer Sherif" class="w-full h-full object-cover" />
+          </div>
+          <h3 class="text-white font-bold text-lg">Abeer Sherif</h3>
+          <p class="text-accent text-sm mt-1">Senior AI Computer Science Student</p>
+        </div>
+      </div>
+      <!-- Text -->
+      <div class="animate-on-scroll">
+        <p class="text-neon text-sm font-semibold tracking-widest uppercase mb-3">About Us</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Building the Future, <br />One Dataset at a Time.
+        </h2>
+        <p class="text-slate-400 leading-relaxed mb-4">
+          We are <span class="text-white font-medium">Senior AI Computer Science students</span> with a deep passion for
+          solving complex real-world problems through <span class="text-white font-medium">Artificial Intelligence,
+            Machine Learning, and Software Engineering</span>.
+        </p>
+        <p class="text-slate-400 leading-relaxed mb-6">
+          From medical digital twins to stock market prediction engines, our projects bridge the gap between
+          cutting-edge AI research and practical software solutions. We believe in clean code, clear thinking, and bold
+          ideas.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <span class="tag">🧠 Machine Learning</span>
+          <span class="tag">📊 Data Science</span>
+          <span class="tag">🤖 AI Systems</span>
+          <span class="tag">💾 Big Data</span>
+          <span class="tag">🌐 Web Dev</span>
+          <span class="tag">🗄️ Databases</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- SKILLS -->
+  <section id="skills" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-16 animate-on-scroll">
+      <p class="text-neon text-sm font-semibold tracking-widest uppercase mb-3">What We Know</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">Skills & Technologies</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Languages -->
+      <div class="neon-border rounded-2xl p-6 bg-card card-hover animate-on-scroll">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
+          style="background: rgba(56,189,248,0.15)">
+          <span class="text-neon text-xl">💻</span>
+        </div>
+        <h3 class="text-white font-bold text-lg mb-4">Languages</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm neon-border">Python</span>
+          <span class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm neon-border">C++</span>
+          <span
+            class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm neon-border">HTML/CSS</span>
+          <span class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm neon-border">Scala</span>
+          <span class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm neon-border">SQL</span>
+        </div>
+      </div>
+      <!-- Libraries -->
+      <div class="neon-border rounded-2xl p-6 bg-card card-hover animate-on-scroll" style="transition-delay: 0.1s">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
+          style="background: rgba(129,140,248,0.15)">
+          <span class="text-accent text-xl">📚</span>
+        </div>
+        <h3 class="text-white font-bold text-lg mb-4">Libraries & Frameworks</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm"
+            style="border-color: rgba(129,140,248,0.3);">Scikit-learn</span>
+          <span class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm"
+            style="border-color: rgba(129,140,248,0.3);">Pandas</span>
+          <span class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm"
+            style="border-color: rgba(129,140,248,0.3);">NumPy</span>
+          <span class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm"
+            style="border-color: rgba(129,140,248,0.3);">TensorFlow</span>
+          <span class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm"
+            style="border-color: rgba(129,140,248,0.3);">Matplotlib</span>
+          <span class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm"
+            style="border-color: rgba(129,140,248,0.3);">Jupyter</span>
+        </div>
+      </div>
+      <!-- Soft Skills -->
+      <div class="neon-border rounded-2xl p-6 bg-card card-hover animate-on-scroll" style="transition-delay: 0.2s">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
+          style="background: rgba(56,189,248,0.10)">
+          <span class="text-neon text-xl">🌟</span>
+        </div>
+        <h3 class="text-white font-bold text-lg mb-4">Soft Skills</h3>
+        <div class="flex flex-wrap gap-2">
+          <span
+            class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm neon-border">Leadership</span>
+          <span
+            class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm neon-border">Communication</span>
+          <span class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm neon-border">Critical
+            Thinking</span>
+          <span
+            class="skill-badge bg-slate-800 text-slate-300 px-3 py-1 rounded-full text-sm neon-border">Adaptability</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-16 animate-on-scroll">
+      <p class="text-neon text-sm font-semibold tracking-widest uppercase mb-3">What We've Built</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">Featured Projects</h2>
+      <p class="text-slate-400 mt-3 max-w-lg mx-auto">A curated selection of projects spanning AI, Big Data, Fintech,
+        and more.</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12 animate-on-scroll" id="filter-btns">
+      <button onclick="filterProjects('all')"
+        class="filter-btn active px-4 py-2 rounded-full text-sm font-semibold transition-all"
+        data-filter="all">All</button>
+      <button onclick="filterProjects('ai')"
+        class="filter-btn px-4 py-2 rounded-full text-sm font-semibold transition-all" data-filter="ai">AI / ML</button>
+      <button onclick="filterProjects('data')"
+        class="filter-btn px-4 py-2 rounded-full text-sm font-semibold transition-all" data-filter="data">Data &
+        BI</button>
+      <button onclick="filterProjects('se')"
+        class="filter-btn px-4 py-2 rounded-full text-sm font-semibold transition-all" data-filter="se">Software
+        Eng.</button>
+      <button onclick="filterProjects('fintech')"
+        class="filter-btn px-4 py-2 rounded-full text-sm font-semibond transition-all"
+        data-filter="fintech">Fintech</button>
+    </div>
+
+    <div id="projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Project cards inserted by JS -->
+    </div>
+  </section>
+
+  <hr class="section-divider" />
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-24 px-6 max-w-5xl mx-auto">
+    <div class="text-center mb-12 animate-on-scroll">
+      <p class="text-neon text-sm font-semibold tracking-widest uppercase mb-3">Get In Touch</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">Let's Connect</h2>
+      <p class="text-slate-400 mt-3">Have a project, an internship opportunity, or just want to connect? Reach out to us
+        directly.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 animate-on-scroll">
+
+      <!-- Basmala Card -->
+      <div class="neon-border bg-card rounded-2xl p-8 card-hover flex flex-col gap-5">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-full overflow-hidden shrink-0"
+            style="border: 2px solid #38bdf8; box-shadow: 0 0 10px rgba(56,189,248,0.4)">
+            <img src="BESO.jpeg" alt="Basmala Yasser" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-lg">Basmala Yasser</h3>
+            <p class="text-neon text-sm">Senior AI Computer Science Student</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-3">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/basmala-yasser-837008289/" target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800 hover:bg-blue-900/30 border border-slate-700 hover:border-blue-500 transition-all group">
+            <svg class="w-5 h-5 text-blue-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.986V9h3.102v1.561h.046c.432-.818 1.49-1.681 3.067-1.681 3.28 0 3.884 2.159 3.884 4.966v6.606zM5.337 7.433a1.8 1.8 0 1 1 0-3.601 1.8 1.8 0 0 1 0 3.601zm1.555 13.019H3.78V9h3.112v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+            <span
+              class="text-slate-300 text-sm group-hover:text-white transition-colors">linkedin.com/in/basmala-yasser</span>
+          </a>
+          <!-- GitHub -->
+          <a href="https://github.com/basmalaemara" target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-500 transition-all group">
+            <svg class="w-5 h-5 text-slate-300 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+            <span class="text-slate-300 text-sm group-hover:text-white transition-colors">github.com/basmalaemara</span>
+          </a>
+          <!-- Email -->
+          <a href="mailto:22-101098@students.eui.edu.eg"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800 hover:bg-red-900/20 border border-slate-700 hover:border-red-400 transition-all group">
+            <svg class="w-5 h-5 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span
+              class="text-slate-300 text-sm group-hover:text-white transition-colors">22-101098@students.eui.edu.eg</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Abeer Card -->
+      <div class="neon-border bg-card rounded-2xl p-8 card-hover flex flex-col gap-5"
+        style="border-color: rgba(129,140,248,0.3)">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-full overflow-hidden shrink-0"
+            style="border: 2px solid #818cf8; box-shadow: 0 0 10px rgba(129,140,248,0.4)">
+            <img src="BERO.jpeg" alt="Abeer Sherif" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <h3 class="text-white font-bold text-lg">Abeer Sherif</h3>
+            <p class="text-accent text-sm">Senior AI Computer Science Student</p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-3">
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/abeer-sherif-79427b27a" target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800 hover:bg-blue-900/30 border border-slate-700 hover:border-blue-500 transition-all group">
+            <svg class="w-5 h-5 text-blue-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.986V9h3.102v1.561h.046c.432-.818 1.49-1.681 3.067-1.681 3.28 0 3.884 2.159 3.884 4.966v6.606zM5.337 7.433a1.8 1.8 0 1 1 0-3.601 1.8 1.8 0 0 1 0 3.601zm1.555 13.019H3.78V9h3.112v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+            <span
+              class="text-slate-300 text-sm group-hover:text-white transition-colors">linkedin.com/in/abeer-sherif</span>
+          </a>
+          <!-- GitHub -->
+          <a href="https://github.com/Abeersherif" target="_blank" rel="noopener noreferrer"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-slate-500 transition-all group">
+            <svg class="w-5 h-5 text-slate-300 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+            </svg>
+            <span class="text-slate-300 text-sm group-hover:text-white transition-colors">github.com/Abeersherif</span>
+          </a>
+          <!-- Email -->
+          <a href="mailto:22-101136@students.eui.edu.eg"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-800 hover:bg-red-900/20 border border-slate-700 hover:border-red-400 transition-all group">
+            <svg class="w-5 h-5 text-red-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <span
+              class="text-slate-300 text-sm group-hover:text-white transition-colors">22-101136@students.eui.edu.eg</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-slate-500 text-sm border-t border-slate-800">
+    <p>© 2025 Basmala Yasser & Abeer Sherif. Built with ❤️ using HTML & Tailwind CSS.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
